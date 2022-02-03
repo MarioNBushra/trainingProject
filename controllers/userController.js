@@ -23,3 +23,16 @@ exports.signin = async (req, res) => {
     res.status(400).send({ msg: error.message });
   }
 };
+
+exports.logout = async (req, res) => {
+  try {
+    const user = req.user;
+    user.tokens = user.tokens.filter((token) => {
+      return token.token !== req.token;
+    });
+    await user.save();
+    res.status(200).send({ msg: "Logged out successfully" });
+  } catch (error) {
+    res.status(400).send({ msg: error.message });
+  }
+};
