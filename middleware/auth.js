@@ -3,7 +3,9 @@ const User = require("../models/UserModel");
 
 const auth = async (req, res, next) => {
   try {
+    console.log(req.header("Authorization"), "HHEEAADDEERR");
     const token = req.header("Authorization").replace("Bearer ", ""); //Bearer is not important we can type any word
+
     console.log(token, "TOKEN");
     const decoded = jwt.verify(token, "abanoub");
     const user = await User.findOne({
