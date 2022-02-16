@@ -12,7 +12,12 @@ exports.createProduct = async (req, res) => {
 
 exports.searchProducts = async (req, res) => {
   try {
-    const products = await ProductModel.find();
+    console.log(req.body);
+    let offsetBody = req.body.offset;
+    const offset = offsetBody ? parseInt(offsetBody) : false;
+    let sizeBody = req.body.size;
+    const size = sizeBody ? parseInt(sizeBody) : false;
+    const products = await ProductModel.find().limit(size).skip(offset);
     res.send(products);
   } catch (error) {
     res.status(400).send({ msg: error.message });
