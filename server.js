@@ -15,6 +15,7 @@ app.use(cors());
 //DB Connection
 require("./db/mongoose");
 const userRoutes = require("./routes/userRoutes");
+const productRoutes = require("./routes/productRoutes");
 // const productRoutes = require("./routes/productRoutes");
 // const catRoutes = require("./routes/catRoutes");
 // const publicAPIsRoutes = require("./routes/publicAPIsRoutes");
@@ -28,6 +29,7 @@ const userRoutes = require("./routes/userRoutes");
 // const cahbackPercentage = require("./routes/cashbackPercentage");
 
 app.use("/api/user", userRoutes);
+app.use("/api/product", productRoutes);
 // app.use("/api/product", productRoutes);
 // app.use("/api/cat", catRoutes);
 // app.use("/api/upload", publicAPIsRoutes);

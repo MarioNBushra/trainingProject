@@ -9,5 +9,4 @@ try {
   console.log("MongoDB IS CONNECTED");
 } catch (error) {
   console.log(error);
-  console.log("Hello FROM DB ERROR");
 }
